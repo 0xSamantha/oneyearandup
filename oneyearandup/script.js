@@ -8,20 +8,23 @@ const projects = [
 	{
 		name: 'Cryptopunks',
 		description: 'Description of Project A',
-		year: '2020',
+		year: '2017',
 		link: 'https://example.com/project-a'
 	},
 	{
 		name: 'Cool Cats',
 		description: 'Description of Project B',
-		year: '2019',
+		year: '2021',
 		link: 'https://example.com/project-b'
 	},
 	{
 		name: 'Bored Ape Yacht Club',
 		description: 'Description of Project C',
-		year: '2018',
+		year: '2021',
 		link: 'https://example.com/project-c'
+	}, 
+	{
+		name:
 	}
 ];
 
