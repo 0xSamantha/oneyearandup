@@ -1,47 +1,78 @@
-// get references to the form and table body
+// get references to the form and project list
 const form = document.querySelector('form');
-const tableBody = document.querySelector('#projects-table-body');
-const noResultsMessage = document.querySelector('#no-results-message');
+const projectList = document.querySelector('.project-list');
 
 // define the projects data as an array of objects
 const projects = [
-	{
-		name: 'Cryptopunks',
-		description: 'Description of Project A',
-		year: '2017',
-		link: 'https://example.com/project-a'
-	},
-	{
-		name: 'Cool Cats',
-		description: 'Description of Project B',
-		year: '2021',
-		link: 'https://example.com/project-b'
-	},
-	{
-		name: 'Bored Ape Yacht Club',
-		description: 'Description of Project C',
-		year: '2021',
-		link: 'https://example.com/project-c'
-	}, 
-	{
-		name:
-	}
+  {
+    title: 'Cryptopunks',
+    description: 'Description of Cryptopunks',
+    category: 'NFT',
+    year: '2017',
+    link: 'https://example.com/cryptopunks'
+  },
+  {
+    title: 'Cool Cats',
+    description: 'Description of Cool Cats',
+    category: 'NFT',
+    year: '2021',
+    link: 'https://example.com/coolcats'
+  },
+  {
+    title: 'Bored Ape Yacht Club',
+    description: 'Description of Bored Ape Yacht Club',
+    category: 'NFT',
+    year: '2021',
+    link: 'https://example.com/boredapeyachtclub'
+  },
+  {
+    title: 'Cold Blooded Creepz',
+    description: 'Description of Cold Blooded Creepz',
+    category: 'NFT',
+    year: '2022',
+    link: 'https://example.com/coldbloodedcreepz'
+  }
 ];
 
-// function to render the projects data as HTML
+// function to render the projects in the project list
 function renderProjects(projects) {
-	// clear any existing content from the table body
-	tableBody.innerHTML = '';
-	
-	// loop through the projects and add each one to the table body
-	for (const project of projects) {
-		const row = document.createElement('tr');
-		row.innerHTML = `
-			<td>${project.name}</td>
-			<td>${project.description}</td>
-			<td>${project.year}</td>
-			<td><a href="${project.link}">Link to ${project.name}</a></td>
-		`;
-		tableBody.appendChild(row);
-	}
+  const container = document.querySelector(".projects-container");
+  container.innerHTML = "";
+
+  if (projects.length === 0) {
+    container.innerHTML = "<p>No projects found.</p>";
+    return;
+  }
+
+  const projectItems = projects.map((project) => {
+    return `<div class="project-item">
+              <h3 class="project-title">${project.title}</h3>
+              <p class="project-description">${project.description}</p>
+              <p class="project-category">${project.category}</p>
+            </div>`;
+  });
+
+  container.innerHTML = projectItems.join("");
 }
+
+// filter the projects by category
+function filterProjects(category) {
+  const filteredProjects = projects.filter((project) => {
+    return project.category === category;
+  });
+
+  renderProjects(filteredProjects);
+}
+
+// get the category buttons and add event listeners to filter projects
+const buttons = document.querySelectorAll(".category-button");
+
+buttons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const category = button.dataset.category;
+    filterProjects(category);
+  });
+});
+
+// render all the projects on page load
+renderProjects(projects);
