@@ -1,5 +1,6 @@
-// get references to the form and project list
+// get references to the form, menu button, and project list
 const form = document.querySelector('form');
+const menuButton = document.querySelector('.menu-button');
 const projectList = document.querySelector('.project-list');
 
 // define the projects data as an array of objects
@@ -72,6 +73,11 @@ buttons.forEach((button) => {
     const category = button.dataset.category;
     filterProjects(category);
   });
+});
+
+// toggle the project list when the menu button is clicked
+menuButton.addEventListener('click', () => {
+  projectList.classList.toggle('hidden');
 });
 
 // render all the projects on page load
