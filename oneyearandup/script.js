@@ -7,29 +7,29 @@ const projectList = document.querySelector('.project-list');
 const projects = [
   {
     title: 'Cryptopunks',
-    description: 'Description of Cryptopunks',
-    category: 'NFT',
+    description: 'Cryptopunks',
+    category: '',
     year: '2017',
     link: 'https://example.com/cryptopunks'
   },
   {
     title: 'Cool Cats',
-    description: 'Description of Cool Cats',
-    category: 'NFT',
+    description: 'Cool Cats',
+    category: '',
     year: '2021',
     link: 'https://example.com/coolcats'
   },
   {
     title: 'Bored Ape Yacht Club',
-    description: 'Description of Bored Ape Yacht Club',
-    category: 'NFT',
+    description: 'Bored Ape Yacht Club',
+    category: '',
     year: '2021',
     link: 'https://example.com/boredapeyachtclub'
   },
   {
     title: 'Cold Blooded Creepz',
-    description: 'Description of Cold Blooded Creepz',
-    category: 'NFT',
+    description: 'Cold Blooded Creepz',
+    category: '',
     year: '2022',
     link: 'https://example.com/coldbloodedcreepz'
   }
